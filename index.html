@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Carrier Versa — pianificatore v02 / B</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="bar">
+  <div class="brand">
+    <h1>Telaio in profilato + mensole in plexiglass</h1>
+  </div>
+  <div class="tabs" id="envTabs"></div>
+  <div class="views" id="viewBtns">
+    <button data-view="iso" class="on">iso</button>
+    <button data-view="front">fronte</button>
+    <button data-view="side">fianco</button>
+    <button data-view="top">dall'alto</button>
+    <button data-view="dims" id="dimsBtn" class="on">quote</button>
+  </div>
+</header>
+
+<main class="stage">
+  <aside class="panel form">
+    <p class="lbl">Livelli / mensole</p>
+    <p class="hint">La cifra e lo <b>spazio residuo</b>: quanto resta libero dal piano della mensola alla trave sopra.</p>
+    <div id="shelfList" class="shelf-list"></div>
+    <div class="row-btns">
+      <button id="addShelf">+ livello</button>
+      <button id="delShelf">&#8722; livello</button>
+    </div>
+
+    <p class="lbl">Scelte di progetto</p>
+    <div class="field"><span>Profilato</span><select id="profile"></select></div>
+    <div class="field"><span>Plexiglass</span><select id="plexi"></select></div>
+    <div class="field"><span>Larghezza</span><input id="clearW" type="range" min="120" max="520" step="5"><b class="mono" id="clearWv"></b></div>
+    <div class="field"><span>Profondita</span><input id="clearD" type="range" min="80" max="280" step="5"><b class="mono" id="clearDv"></b></div>
+
+    <p class="lbl">Misure che servono <b class="count" id="qCount"></b></p>
+    <p class="hint">Sono le stesse del foglio A4: stesso numero, stesso nome. Scrivi qui e la scena
+      si aggiorna mentre misuri.</p>
+    <div id="askList" class="ask"></div>
+
+    <p class="lbl">Come viene usato</p>
+    <div id="decList" class="dec"></div>
+
+    <p class="lbl">Riporta le misure</p>
+    <p class="hint">Da incollare in una mail o in una chat: testo semplice, niente allegati.</p>
+    <textarea id="exportBox" class="export mono" rows="10" spellcheck="false"></textarea>
+    <div class="row-btns">
+      <button id="copyBtn">copia testo</button>
+      <button id="linkBtn">copia link</button>
+      <button id="loadLinkBtn">apri link incollato</button>
+    </div>
+    <p class="hint mono" id="linkNote"></p>
+  </aside>
+
+  <section class="viewport">
+    <div id="scene"></div>
+    <div class="legend" id="legend"></div>
+    <div class="hoverline mono" id="hoverline">passa sopra un modulo per il nome</div>
+    <div class="draghint mono" id="draghint">trascina un modulo: in largo lo sposti, in su/giu cambia mensola</div>
+  </section>
+
+  <aside class="panel readout">
+    <p class="lbl">Kit in elenco</p>
+    <div id="kitList" class="kit-list"></div>
+
+    <p class="lbl">Ingombro telaio</p>
+    <p class="carrier mono" id="carrierBox"></p>
+    <p class="hint mono" id="carrierSub"></p>
+    <p class="hint mono" id="weightBox"></p>
+
+    <p class="lbl">Verifica contenitori</p>
+    <div id="verdicts"></div>
+
+    <p class="lbl">Problemi</p>
+    <ul id="issues" class="issues"></ul>
+  </aside>
+</main>
+
+
+<script type="module" src="app.js"></script>
+</body>
+</html>
